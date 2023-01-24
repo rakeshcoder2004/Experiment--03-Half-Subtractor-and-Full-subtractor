@@ -28,27 +28,47 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 ## Procedure
 
 
+Connect the supply(+5V) to the cirucit. Switch ON the main switch if the output is 1,then the led glows.
 
-Write the detailed procedure here 
+
 
 
 ## Program:
-/*
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+~~~py
+module half_sub(x,y,d,b);
+input x,y;
+output d,b;
+wire x1;
+xor(d,a,b);
+not(x1,x);
+and(b,x1,y);
+endmodule
+~~~
+
+~~~py
+module full_sub(a,b,c,d,bo);
+input a,b,c;
+output d,bo;
+wire w1,w2,w3,w4,w5;
+xor(w1,b,c);
+xor(d,w1,a);
+not(w2,b);
+and(w5,w2,c);
+not(w3,w1);
+and(w4,w2,a);
+or(bo,w4,w5);
+endmodule
+~~~
+
 
 ## Output:
-
-## Truthtable
-
-
-
 ##  RTL realization
-
+![half](/half_sub_l.png)
+![full](/full_sub.png)
 
 ## Timing diagram 
+![half](/half_sub_wave.png)
+![full](/full_sub_waave.png)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
